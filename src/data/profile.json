@@ -1,0 +1,62 @@
+{
+  "basics": {
+    "name": "SHIN CHUNGSIK",
+    "heading": "Unreal Engine Client Developer",
+    "status": "ACTIVE",
+    "email": "masin556@gmail.com",
+    "phone": "010-7330-4401",
+    "github": "https://github.com/masin556",
+    "linkedin": "https://www.linkedin.com/in/johsep-shin-728985269/",
+    "blog": "https://ppatabox.tistory.com/",
+    "notion": "https://gibeonsoftwork.notion.site/PPATABOX-NOTION-164955678a7d409584c02c2d03b914b9",
+    "youtube": "https://www.youtube.com/@devppatabox",
+    "summary": "I participated in shooting simulation and video shooting projects utilizing Unreal Engine, and formed a team to carry out the projects. I also planned, developed, and participated in projects to build services and systems within the company."
+  },
+  "education": [
+    {
+      "institution": "부천대학교",
+      "area": "Department of Business Administration [Graduated]",
+      "startDate": "2018",
+      "endDate": "2021"
+    },
+    {
+      "institution": "한국방송통신대학교",
+      "area": "Computer Science [In Progress]",
+      "startDate": "2025",
+      "endDate": "2027"
+    }
+  ],
+  "skills": {
+    "frontend": [
+      "Unreal Engine",
+      "C/C++",
+      "Python"
+    ],
+    "backend": [],
+    "Others": [
+      "LLM_Creator",
+      "Drone pilot"
+    ],
+    "Embedded": [
+      "C/C++"
+    ]
+  },
+  "career": [
+    {
+      "company": "FTS Global",
+      "position": "Lead Developer",
+      "startDate": "2024-11",
+      "endDate": "On duty",
+      "description": "Development of Unreal Engine simulation and modeling, video production, and training ground systems",
+      "url": "https://ko.ftsglobal.co.kr/"
+    },
+    {
+      "company": "대한민국 특전사",
+      "position": "Sergeant",
+      "startDate": "2015-02",
+      "endDate": "2020-05",
+      "description": "I trained and performed duties for the Special Forces team and high-value target assassination operations within the Republic of Korea Army Special Forces for five years.",
+      "url": ""
+    }
+  ]
+}
