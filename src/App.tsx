@@ -8,7 +8,7 @@ import { ProjectDetail } from './pages/ProjectDetail';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
