@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Fingerprint, GraduationCap, ChevronDown, ChevronUp, Mail, Phone } from 'lucide-react';
 import profileData from '../data/profile.json';
+import { resolvePath } from '../utils/imagePath';
 
 const SkillBadge = ({ skill }: { skill: string }) => (
     <span className="px-3 py-1 text-xs font-mono text-neon-cyan border border-neon-cyan/30 rounded bg-neon-cyan/5 hover:bg-neon-cyan/10 transition-colors cursor-default">
@@ -26,7 +27,7 @@ export const ProfileCard = () => {
 
                 <div className="relative z-10 flex flex-col md:flex-row gap-6 items-start">
                     <div className="w-32 h-32 rounded-lg border-2 border-neon-cyan shadow-[0_0_20px_rgba(0,243,255,0.3)] flex-shrink-0 overflow-hidden bg-black">
-                        <img src="/images/ProfilePic.png" alt="Profile" className="w-full h-full object-cover object-top" />
+                        <img src={resolvePath("/images/ProfilePic.png")} alt="Profile" className="w-full h-full object-cover object-top" />
                     </div>
 
                     <div className="w-full">

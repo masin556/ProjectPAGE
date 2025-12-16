@@ -6,6 +6,7 @@ import { getProjects } from '../utils/projectLoader';
 import type { Project } from '../utils/projectLoader';
 import { ProjectModal } from './ProjectModal';
 import clsx from 'clsx';
+import { resolvePath } from '../utils/imagePath';
 
 interface ProjectGridProps {
     projects?: Project[]; // Optional: if not provided, uses all from json
@@ -83,7 +84,7 @@ export const ProjectGrid = ({ projects: initialProjects, viewMode = 'modal' }: P
                         >
                             {/* Thumbnail Image */}
                             <img
-                                src={project.thumbnail}
+                                src={resolvePath(project.thumbnail)}
                                 alt={project.title}
                                 className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                             />

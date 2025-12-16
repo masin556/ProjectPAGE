@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getProjects } from '../utils/projectLoader';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import { resolvePath } from '../utils/imagePath';
 
 export const ProjectDetail = () => {
     const { id } = useParams();
@@ -41,7 +42,7 @@ export const ProjectDetail = () => {
             {/* Hero Section */}
             <header className="relative h-[60vh] overflow-hidden">
                 <div className="absolute inset-0">
-                    <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover opacity-60" />
+                    <img src={resolvePath(project.thumbnail)} alt={project.title} className="w-full h-full object-cover opacity-60" />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
                 </div>
 

@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import React from 'react';
+import { resolvePath } from '../utils/imagePath';
 
 interface CodeComponentProps extends React.HTMLAttributes<HTMLElement> {
     inline?: boolean;
@@ -30,6 +31,9 @@ const MarkdownRenderer = ({ content }: { content: string }) => {
                                 {children}
                             </code>
                         )
+                    },
+                    img(props) {
+                        return <img {...props} src={resolvePath(props.src || '')} />
                     }
                 }}
             >
