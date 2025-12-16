@@ -114,16 +114,27 @@ export const ProjectDetail = () => {
                                 <h3 className="text-neon-cyan font-bold font-mono mb-4 text-sm tracking-wider">ACCESS_POINTS</h3>
                                 <div className="space-y-3">
                                     {project.links.map((link, idx) => (
-                                        <a
-                                            key={idx}
-                                            href={link.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center justify-between p-3 bg-neon-cyan/5 border border-neon-cyan/20 rounded hover:bg-neon-cyan/20 transition-all group"
-                                        >
-                                            <span className="text-sm text-gray-300 group-hover:text-white">{link.label}</span>
-                                            <ExternalLink className="w-4 h-4 text-neon-cyan" />
-                                        </a>
+                                        <div key={idx} className="relative group">
+                                            <a
+                                                href={link.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-between p-3 bg-neon-cyan/5 border border-neon-cyan/20 rounded hover:bg-neon-cyan/20 transition-all"
+                                            >
+                                                <span className="text-sm text-gray-300 group-hover:text-white">{link.label}</span>
+                                                <ExternalLink className="w-4 h-4 text-neon-cyan" />
+                                            </a>
+
+                                            {/* Tooltip Bubble */}
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                                                whileInView={{ opacity: 0, y: 10, scale: 0.8 }} // Reset state when not hovering (handled by group-hover actually, but css based is easier)
+                                                className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-neon-cyan text-black text-xs font-bold font-mono rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-[0_0_10px_rgba(0,243,255,0.5)]"
+                                            >
+                                                OPEN LINK
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-neon-cyan"></div>
+                                            </motion.div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>

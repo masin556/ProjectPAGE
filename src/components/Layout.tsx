@@ -22,15 +22,23 @@ const SidebarItem = ({ to, icon: Icon, label }: { to: string, icon: LucideIcon, 
     </NavLink>
 );
 
-const SocialLink = ({ href, icon: Icon }: { href: string, icon: LucideIcon }) => (
-    <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-500 hover:text-neon-cyan transition-colors duration-300"
-    >
-        <Icon className="w-5 h-5" />
-    </a>
+const SocialLink = ({ href, icon: Icon, label }: { href: string, icon: LucideIcon, label: string }) => (
+    <div className="relative group">
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-neon-cyan transition-colors duration-300 block"
+        >
+            <Icon className="w-5 h-5" />
+        </a>
+
+        {/* Tooltip */}
+        <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-neon-cyan text-black text-[10px] font-bold font-mono rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-[0_0_10px_rgba(0,243,255,0.5)] z-50">
+            {label}
+            <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-neon-cyan"></div>
+        </div>
+    </div>
 );
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -97,11 +105,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                             <span className="text-[10px] text-green-400 font-mono animate-pulse">● ACTIVE</span>
                         </div>
                         <div className="flex gap-3 justify-center mt-3 border-t border-white/5 pt-3 flex-wrap">
-                            <SocialLink href="https://github.com/masin556" icon={Github} />
-                            <SocialLink href="https://www.linkedin.com/in/johsep-shin-728985269/" icon={Linkedin} />
-                            <SocialLink href="https://www.youtube.com/@devppatabox" icon={Youtube} />
-                            <SocialLink href="https://ppatabox.tistory.com/" icon={Book} />
-                            <SocialLink href="https://gibeonsoftwork.notion.site/PPATABOX-NOTION-164955678a7d409584c02c2d03b914b9" icon={FileText} />
+                            <SocialLink href="https://github.com/masin556" icon={Github} label="GITHUB" />
+                            <SocialLink href="https://www.linkedin.com/in/johsep-shin-728985269/" icon={Linkedin} label="LINKEDIN" />
+                            <SocialLink href="https://www.youtube.com/@devppatabox" icon={Youtube} label="YOUTUBE" />
+                            <SocialLink href="https://ppatabox.tistory.com/" icon={Book} label="BLOG" />
+                            <SocialLink href="https://gibeonsoftwork.notion.site/PPATABOX-NOTION-164955678a7d409584c02c2d03b914b9" icon={FileText} label="NOTION" />
                         </div>
                     </div>
                     <div className="mt-4 text-center">
@@ -151,9 +159,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                             </div>
 
                             <div className="border-t border-white/10 mt-4 pt-4 flex gap-4 justify-center">
-                                <SocialLink href="https://github.com/masin556" icon={Github} />
-                                <SocialLink href="https://www.linkedin.com/in/johsep-shin-728985269/" icon={Linkedin} />
-                                <SocialLink href="mailto:masin556@gmail.com" icon={Mail} />
+                                <SocialLink href="https://github.com/masin556" icon={Github} label="GITHUB" />
+                                <SocialLink href="https://www.linkedin.com/in/johsep-shin-728985269/" icon={Linkedin} label="LINKEDIN" />
+                                <SocialLink href="mailto:masin556@gmail.com" icon={Mail} label="EMAIL" />
                             </div>
                         </nav>
                     </motion.div>

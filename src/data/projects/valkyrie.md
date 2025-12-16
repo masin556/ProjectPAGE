@@ -13,9 +13,9 @@ links: [{"label": "Video Preview", "url": "https://youtu.be/2LMIYNKsnrU?si=zhfOs
 # Hyper-Class VR
 
 ## The Future of Education
-A fully immersive VR classroom environment built with **Unity** and **WebGL**.
+A fully immersive VR classroom environment built with **Unreal Engine** and **WebGL**.
 
-![VR Classroom](https://placehold.co/800x400/1a1a2e/00f3ff?text=VR+Environment)
+[Watch Gameplay Video](https://youtu.be/2LMIYNKsnrU?si=n9yK4Sh7L-WRssiA)
 
 ### Core Mechanics
 - **Avatar Sync**: Low-latency movement synchronization

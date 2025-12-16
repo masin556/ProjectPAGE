@@ -116,6 +116,12 @@ export const ProfileCard = () => {
                                             </div>
                                             <span className="text-xs font-mono bg-neon-purple/20 text-neon-purple px-2 py-1 rounded whitespace-nowrap ml-2">
                                                 {job.startDate} - {job.endDate}
+                                                {(job.endDate === 'On duty' || job.endDate === 'Active') && (
+                                                    <span className="inline-flex h-2 w-2 ml-2 relative top-[1px]">
+                                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                                    </span>
+                                                )}
                                             </span>
                                         </div>
                                         <p className="text-gray-300 text-sm leading-relaxed">{job.description}</p>
