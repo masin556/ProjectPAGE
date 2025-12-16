@@ -1,6 +1,6 @@
 // DEBUG: Global Error Handler
 window.onerror = function (message, source, lineno, colno, error) {
-  alert('Global Error:\n' + message + '\nLine: ' + lineno + '\nSource: ' + source + '\nError: ' + error);
+  alert('Global Error:\n' + message + '\nLine: ' + lineno + '\nCol: ' + colno + '\nSource: ' + source + '\nError: ' + error);
 };
 window.onunhandledrejection = function (event) {
   alert('Unhandled Promise Rejection:\n' + event.reason);
