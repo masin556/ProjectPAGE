@@ -7,6 +7,10 @@
  */
 export const resolvePath = (path: string | undefined): string => {
     if (!path) return '';
+
+    // Normalize backslashes to forward slashes
+    path = path.replace(/\\/g, '/');
+
     if (path.startsWith('http')) return path; // External URL
 
     const base = import.meta.env.BASE_URL;

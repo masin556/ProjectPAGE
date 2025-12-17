@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Fingerprint, GraduationCap, ChevronDown, ChevronUp, Mail, Phone } from 'lucide-react';
 import profileData from '../data/profile.json';
 import { resolvePath } from '../utils/imagePath';
+import { getParsedSkills } from '../utils/skillUtils';
+import type { Skill } from '../utils/skillUtils';
 
 const SkillBadge = ({ skill }: { skill: string }) => (
     <span className="px-3 py-1 text-xs font-mono text-neon-cyan border border-neon-cyan/30 rounded bg-neon-cyan/5 hover:bg-neon-cyan/10 transition-colors cursor-default">
@@ -52,11 +54,11 @@ export const ProfileCard = () => {
                                     <Fingerprint className="w-4 h-4" /> SKILL MATRIX
                                 </h4>
                                 <div className="space-y-3">
-                                    {Object.entries(profileData.skills).map(([category, skills]) => (
+                                    {Object.entries(getParsedSkills()).map(([category, skills]: [string, Skill[]]) => (
                                         <div key={category}>
                                             <span className="text-xs text-gray-500 uppercase font-mono mb-1 block">{category}</span>
                                             <div className="flex flex-wrap gap-2">
-                                                {skills.map(s => <SkillBadge key={s} skill={s} />)}
+                                                {skills.map(s => <SkillBadge key={s.name} skill={s.name} />)}
                                             </div>
                                         </div>
                                     ))}

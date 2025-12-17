@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Calendar, Code, Building2 } from 'lucide-react';
 import MarkdownRenderer from './MarkdownRenderer';
+import { resolvePath } from '../utils/imagePath';
 
 interface Project {
     id: string;
@@ -46,7 +47,7 @@ export const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) =>
                         >
                             {/* Header Image */}
                             <div className="h-48 md:h-64 relative bg-gray-900 flex-shrink-0">
-                                <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover opacity-60" />
+                                <img src={resolvePath(project.thumbnail)} alt={project.title} className="w-full h-full object-cover opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-neon-surface to-transparent" />
 
                                 <button
@@ -60,7 +61,11 @@ export const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) =>
                                     <span className="text-neon-cyan font-mono text-xs border border-neon-cyan/30 px-2 py-1 rounded mb-2 inline-block bg-black/50 backdrop-blur-sm">
                                         {project.category}
                                     </span>
-                                    <h2 className="text-3xl md:text-4xl font-bold font-orbitron text-white">{project.title}</h2>
+                                    <h2 className="text-3xl md:text-4xl font-bold font-orbitron text-white">
+                                        {project.title.split('(').map((part, index) => (
+                                            index === 0 ? part : <span key={index} className="text-xl md:text-2xl text-gray-400 font-normal ml-1">({part}</span>
+                                        ))}
+                                    </h2>
                                 </div>
                             </div>
 
@@ -70,9 +75,8 @@ export const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) =>
                                     <div className="flex-1">
                                         <MarkdownRenderer content={project.content} />
                                     </div>
-
-                                    {/* Sidebar Info */}
                                     <div className="w-full md:w-64 space-y-6 flex-shrink-0 border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-6">
+
                                         {project.company && (
                                             <div>
                                                 <h4 className="text-gray-500 text-sm font-mono mb-2 flex items-center gap-2">
