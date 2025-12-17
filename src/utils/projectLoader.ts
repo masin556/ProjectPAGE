@@ -10,6 +10,8 @@ export interface Project {
     summary: string;
     links?: { label: string; url: string }[];
     content: string;
+    status?: 'Done' | 'In Progress';
+    preview?: string;
 }
 
 const parseFrontmatter = (fileContent: string): { metadata: any, content: string } => {

@@ -7,9 +7,10 @@ import gibeonLogo from '../assets/Pictures/GIBEONLOGO.png';
 import clsx from 'clsx';
 import profileData from '../data/profile.json';
 
-const SidebarItem = ({ to, icon: Icon, label }: { to: string, icon: LucideIcon, label: string }) => (
+const SidebarItem = ({ to, icon: Icon, label, onClick }: { to: string, icon: LucideIcon, label: string, onClick?: () => void }) => (
     <NavLink
         to={to}
+        onClick={onClick}
         className={({ isActive }) => clsx(
             "flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-300 group",
             isActive
@@ -142,9 +143,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                         className="md:hidden fixed top-[69px] left-0 w-full bg-neon-surface border-b border-white/10 z-40 overflow-hidden"
                     >
                         <nav className="flex flex-col p-4 space-y-2">
-                            <SidebarItem to="/" icon={User} label="HOME / MAIN" />
-                            <SidebarItem to="/projects" icon={FolderGit2} label="ALL PROJECTS" />
-                            <SidebarItem to="/skills" icon={Cpu} label="CAPABILITIES" />
+                            <SidebarItem to="/" icon={User} label="HOME / MAIN" onClick={() => setIsMobileMenuOpen(false)} />
+                            <SidebarItem to="/projects" icon={FolderGit2} label="ALL PROJECTS" onClick={() => setIsMobileMenuOpen(false)} />
+                            <SidebarItem to="/skills" icon={Cpu} label="CAPABILITIES" onClick={() => setIsMobileMenuOpen(false)} />
 
                             <div className="pt-4 mt-4 border-t border-white/10">
                                 <p className="px-4 text-xs font-mono text-gray-500 mb-2">CORPORATE_LOGS</p>
@@ -154,6 +155,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                                         to={`/company/${encodeURIComponent(company)}`}
                                         icon={Building2}
                                         label={company.toUpperCase()}
+                                        onClick={() => setIsMobileMenuOpen(false)}
                                     />
                                 ))}
                             </div>
